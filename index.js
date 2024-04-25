@@ -28,6 +28,50 @@ initializeData();
 
 // TASK: Get elements from the DOM
 const elements = {
+  //Navigation bar
+
+  sideBarDiv: document.getElementById("side-bar-div"),
+  logo: document.getElementById("logo"),
+  boardsNavLinksDiv: document.getElementById("boards-nav-links-div"),
+  bottomSideBar: document.querySelector(".side-bar-bottom"),
+  themeSwitch: document.getElementById("switch"),
+  hideSideBarBtn: document.getElementById("hide-side-bar-btn"),
+  showSideBarBtn: document.getElementById("show-side-bar-btn"),
+  // Main Layout
+  layout: document.getElementById("layout"),
+  header: document.getElementById("header"),
+  headerBoardName: document.getElementById("header-board-name"),
+  createNewTaskBtn: document.getElementById("add-new-task-btn"),
+  editBoardBtn: document.getElementById("edit-board-btn"),
+  editBoardDiv: document.getElementById("editBoardDiv"),
+
+  // Columns
+  columnDivs: document.querySelectorAll(".column-div"),
+  // todoColumn: document.querySelector('[data-status="todo"]'),
+  // doingColumn: document.querySelector('[data-status="doing"]'),
+  // doneColumn: document.querySelector('[data-status="done"]'),
+
+  // Modals
+  modalWindow: document.getElementById("new-task-modal-window"),
+  editTaskModal: document.querySelector(".edit-task-modal-window"),
+
+  // Others
+  filterDiv: document.getElementById("filterDiv"),
+  dropdownBtn: document.getElementById("dropdownBtn"),
+  dropDownIcon: document.getElementById("dropDownIcon"),
+  createTaskBtn: document.getElementById("create-task-btn"),
+  cancelAddTaskBtn: document.getElementById("cancel-add-task-btn"),
+  modalTitleInput: document.getElementById("title-input"),
+  modalDescInput: document.getElementById("desc-input"),
+  modalSelectStatus: document.getElementById("select-status"),
+  editTaskForm: document.getElementById("edit-task-form"),
+  editTaskTitleInput: document.getElementById("edit-task-title-input"),
+  editTaskDescInput: document.getElementById("edit-task-desc-input"),
+  editSelectStatus: document.getElementById("edit-select-status"),
+  saveTaskChangesBtn: document.getElementById("save-task-changes-btn"),
+  cancelEditBtn: document.getElementById("cancel-edit-btn"),
+  deleteTaskBtn: document.getElementById("delete-task-btn"),
+
 
 }
 
