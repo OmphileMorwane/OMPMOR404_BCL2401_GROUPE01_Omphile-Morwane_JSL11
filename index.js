@@ -190,7 +190,7 @@ function addTaskToUI(task) {
   taskElement.textContent = task.title; 
   taskElement.setAttribute("data-task-id", task.id);
 
-  tasksContainer.appendChild(taskElement);
+  tasksContainer.appendChild(taskElement); //Added taskElement that represents a new <div> element that will be used to display a task in the user interface
 }
 
 // function sets up an event listener for the cancel edit button. When clicked, it hides the edit task modal.
@@ -203,22 +203,23 @@ function setupEventListeners() {
 
 
   // Cancel adding new task event listener
-  const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
-  cancelAddTaskBtn.addEventListener('click', () => {
+  const cancelAddTaskBtn = document.getElementById("cancel-add-task-btn");
+  cancelAddTaskBtn.addEventListener("click", () => {
     toggleModal(false);
-    elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
+    elements.filterDiv.style.display = "none"; // Also hide the filter overlay
   });
 
   // Clicking outside the modal to close it
-  elements.filterDiv.addEventListener('click', () => {
+  elements.filterDiv.addEventListener("click", () => {
     toggleModal(false);
-    elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
+    elements.filterDiv.style.display = "none"; // Also hide the filter overlay
   });
 
   // Show sidebar event listener
-  elements.hideSideBarBtn.click() => toggleSidebar(false));
-  elements.showSideBarBtn.click() => toggleSidebar(true));
-
+  elements.hideSideBarBtn.addEventListener("click", () => toggleSidebar(false));
+  elements.showSideBarBtn.addEventListener("click", () => toggleSidebar(true));
+  elements.showSideBarBtn.style.display = "block";
+  
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
 
