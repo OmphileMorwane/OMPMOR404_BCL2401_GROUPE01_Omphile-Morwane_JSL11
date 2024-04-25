@@ -165,36 +165,42 @@ function styleActiveBoard(boardName) {
   });
 }
 
-
+//Ensures that a new task is dynamically added to the UI within the appropriate column and tasks container based on the task's status.
 function addTaskToUI(task) {
-  const column = document.querySelector('.column-div[data-status="${task.status}"]'); 
+  const column = document.querySelector(
+    `.column-div[data-status="${task.status}"]`
+  );
   if (!column) {
     console.error(`Column not found for status: ${task.status}`);
     return;
   }
 
-  let tasksContainer = column.querySelector('.tasks-container');
+  let tasksContainer = column.querySelector(".tasks-container");
   if (!tasksContainer) {
-    console.warn(`Tasks container not found for status: ${task.status}, creating one.`);
-    tasksContainer = document.createElement('div');
-    tasksContainer.className = 'tasks-container';
+    console.warn(
+      `Tasks container not found for status: ${task.status}, creating one.`
+    );
+    tasksContainer = document.createElement("div");
+    tasksContainer.className = "tasks-container";
     column.appendChild(tasksContainer);
   }
 
-  const taskElement = document.createElement('div');
-  taskElement.className = 'task-div';
-  taskElement.textContent = task.title; // Modify as needed
-  taskElement.setAttribute('data-task-id', task.id);
-  
-  tasksContainer.appendChild(); 
+  const taskElement = document.createElement("div");
+  taskElement.className = "task-div";
+  taskElement.textContent = task.title; 
+  taskElement.setAttribute("data-task-id", task.id);
+
+  tasksContainer.appendChild(taskElement);
 }
 
-
-
+// function sets up an event listener for the cancel edit button. When clicked, it hides the edit task modal.
 function setupEventListeners() {
   // Cancel editing task event listener
-  const cancelEditBtn = document.getElementById('cancel-edit-btn');
-  cancelEditBtn.click() => toggleModal(false, elements.editTaskModal));
+  const cancelEditBtn = document.getElementById("cancel-edit-btn");
+  cancelEditBtn.addEventListener("click", () =>
+    toggleModal(false, elements.editTaskModal)
+  );
+
 
   // Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
