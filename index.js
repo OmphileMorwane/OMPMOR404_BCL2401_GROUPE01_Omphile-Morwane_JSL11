@@ -240,6 +240,10 @@ function setupEventListeners() {
 function toggleModal(show, modal = elements.modalWindow) {
   modal.style.display = show ? "block" : "none";
 }
+const toggleDiv = document.querySelector(".toggle-div");
+
+// Add the custom class to the element
+toggleDiv.classList.add("custom-toggle-style");
 
 /*************************************************************************************************************************************************
  * COMPLETE FUNCTION CODE
@@ -249,17 +253,21 @@ function addTask(event) {
   event.preventDefault(); 
 
   //Assign user input to the task object
-    const task = {
-      
-    };
-    const newTask = createNewTask(task);
-    if (newTask) {
-      addTaskToUI(newTask);
-      toggleModal(false);
-      elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
-      event.target.reset();
-      refreshTasksUI();
-    }
+  const task = {
+    board: activeBoard,
+    description: elements.modalDescInput.value,
+    id: JSON.parse(localStorage.getItem("id")),
+    status: elements.modalSelectStatus.value,
+    title: elements.modalTitleInput.value,
+  };
+  const newTask = createNewTask(task);
+  if (newTask) {
+    addTaskToUI(newTask);
+    toggleModal(false);
+    elements.filterDiv.style.display = "none"; // Also hide the filter overlay
+    event.target.reset();
+    refreshTasksUI();
+  }
 }
 
 
