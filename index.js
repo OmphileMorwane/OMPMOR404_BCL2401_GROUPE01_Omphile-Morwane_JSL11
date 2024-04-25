@@ -287,7 +287,21 @@ elements.bottomSideBar.style.paddingTop = "300px";
 
 
 function toggleTheme() {
- 
+  const body = document.body;
+  body.classList.toggle("light-theme");
+
+  // Function to swich the logo image back and forth as chosen
+  const isLightTheme = body.classList.contains("light-theme"); //
+
+  if (isLightTheme) {
+    localStorage.setItem("logo-theme", "./assets/logo-light.svg");
+    localStorage.setItem("light-theme", "disabled");
+  } else {
+    localStorage.setItem("logo-theme", "./assets/logo-dark.svg");
+    localStorage.setItem("light-theme", "enabled");
+  }
+
+  elements.logo.src = localStorage.getItem("logo-theme");
 }
 
 
