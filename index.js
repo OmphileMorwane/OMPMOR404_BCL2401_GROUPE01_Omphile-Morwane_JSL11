@@ -270,10 +270,21 @@ function addTask(event) {
   }
 }
 
-
+//toggle visibility of side bar and sores state in local storage
 function toggleSidebar(show) {
- 
+  const sidebar = document.querySelector(".side-bar");
+  if (show) {
+    sidebar.style.display = "block";
+    elements.showSideBarBtn.style.display = "none";
+  } else {
+    sidebar.style.display = "none";
+    elements.showSideBarBtn.style.display = "block";
+  }
+  localStorage.setItem("showSideBar", show);
 }
+
+elements.bottomSideBar.style.paddingTop = "300px";
+
 
 function toggleTheme() {
  
