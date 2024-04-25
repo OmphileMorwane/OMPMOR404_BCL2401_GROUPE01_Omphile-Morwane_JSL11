@@ -8,8 +8,6 @@ import {
 } from "./utils/taskFunctions.js";
 // TASK: import initialData
 import { initialData } from "./initialData.js";
-// TASK: import initialData
-
 
 /*************************************************************************************************************************************************
  * FIX BUGS!!!
@@ -71,10 +69,7 @@ const elements = {
   saveTaskChangesBtn: document.getElementById("save-task-changes-btn"),
   cancelEditBtn: document.getElementById("cancel-edit-btn"),
   deleteTaskBtn: document.getElementById("delete-task-btn"),
-
-
 }
-
 let activeBoard = ""
 
 // Extracts unique board names from tasks
@@ -165,7 +160,7 @@ function styleActiveBoard(boardName) {
   });
 }
 
-//Ensures that a new task is dynamically added to the UI within the appropriate column and tasks container based on the task's status.
+//Function to add a new task to the UI based on its status
 function addTaskToUI(task) {
   const column = document.querySelector(
     `.column-div[data-status="${task.status}"]`
@@ -201,8 +196,7 @@ function setupEventListeners() {
     toggleModal(false, elements.editTaskModal)
   );
 
-
-  // Cancel adding new task event listener
+// Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById("cancel-add-task-btn");
   cancelAddTaskBtn.addEventListener("click", () => {
     toggleModal(false);
@@ -282,9 +276,7 @@ function toggleSidebar(show) {
   }
   localStorage.setItem("showSideBar", show);
 }
-
 elements.bottomSideBar.style.paddingTop = "300px";
-
 
 function toggleTheme() {
   const body = document.body;
@@ -303,8 +295,6 @@ function toggleTheme() {
 
   elements.logo.src = localStorage.getItem("logo-theme");
 }
-
-
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
@@ -333,7 +323,6 @@ function openEditTaskModal(task) {
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
-
 
 function saveTaskChanges(taskId) {
   // Create an object with the updated task details
