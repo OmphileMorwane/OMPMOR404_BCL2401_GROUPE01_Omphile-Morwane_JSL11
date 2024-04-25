@@ -356,15 +356,19 @@ function saveTaskChanges(taskId) {
 
 /*************************************************************************************************************************************************/
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   init(); // init is called after the DOM is fully loaded
 });
-
+//Setting up initia; state of the application
 function init() {
+  if (localStorage.getItem("logo-theme") !== "./assets/logo-dark.svg") {
+    elements.logo.src = "./assets/logo-light.svg";
+  }
   setupEventListeners();
-  const showSidebar = localStorage.getItem('showSideBar') === 'true';
+  const showSidebar = localStorage.getItem("showSideBar") === "true";
   toggleSidebar(showSidebar);
-  const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
-  document.body.classList.toggle('light-theme', isLightTheme);
+  const isLightTheme = localStorage.getItem("light-theme") === "disabled";
+  document.body.classList.toggle("light-theme", isLightTheme);
+  elements.themeSwitch.checked = isLightTheme; //
   fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
 }
